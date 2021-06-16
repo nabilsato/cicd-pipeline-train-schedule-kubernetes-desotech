@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "nabilsato/train-schedule"
+        DOCKER_IMAGE_NAME = "nabil/train-schedule"
         DOCKER_IMAGE_TAG = 'latest'
-        DOCKER_REGISTRY = 'https://registry.hub.docker.com'
+        DOCKER_REGISTRY = 'r.deso.tech'
     }
     stages {
         stage('Build') {
@@ -28,7 +28,7 @@ pipeline {
 
             steps {
                 script {
-                    docker.withRegistry(DOCKER_REGISTRY, 'docker_hub_login') {
+                    docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
