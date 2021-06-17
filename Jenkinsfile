@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "nabil/train-schedule"
+        DOCKER_IMAGE_NAME = "nabil/train-kubernetes"
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_REGISTRY = 'r.deso.tech'
     }
